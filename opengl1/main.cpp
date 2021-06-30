@@ -1,5 +1,5 @@
 #include <GLFW/glfw3.h>
-
+//YOGO
 int main(void)
 {
 	GLFWwindow* window;
