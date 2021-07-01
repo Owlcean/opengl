@@ -1,7 +1,11 @@
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
+
 //YOGO
 int main(void)
 {
+
 	GLFWwindow* window;
 
 	/* Initialize the library */
@@ -17,7 +21,14 @@ int main(void)
 	}
 
 	/* Make the window's context current */
-	glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(window);//opengl渲染上下文
+
+	if (glewInit() != GLEW_OK)//glew必须在opengl上下文创建后调用
+	{
+		std::cout << "glew init fail" << std::endl;
+	}
+
+	std::cout << glGetString(GL_VERSION) << std::endl;
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
