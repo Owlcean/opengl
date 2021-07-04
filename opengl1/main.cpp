@@ -5,6 +5,33 @@
 #include <string>
 #include <sstream>
 
+#define ASSERT(x) if(!(x)) __debugbreak();
+#define GLCall(x) GLClearError();\
+	x;\
+	ASSERT(GLLogCall(#x,__FILE__,__LINE__))
+
+
+static void GLClearError()
+{
+	while (glGetError() != GL_NO_ERROR)
+	{
+		
+	}
+}
+
+static bool GLLogCall(const char* function ,const char* file,int line)
+{
+	while (GLenum error = glGetError())
+	{
+		std::cout << "[OpenGL Error] (0x" << std::hex << error << ")" << std::endl;
+		std::cout << "[function name]: "<< function << std::endl;
+		std::cout << "[file name]: " << file << std::endl;
+		std::cout << "[line]: " << line << std::endl;
+		return false;
+	}
+	return true;
+}
+
 struct ShaderProgramSource {
 	std::string VertexSource;
 	std::string FragmentSource;
@@ -168,6 +195,8 @@ int main(void)
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		GLClearError();
+
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		//render primitives from array data
@@ -175,7 +204,7 @@ int main(void)
 		//arg2:number of elements to be rendererd
 		//arg3:the type of the values in indices
 		//arg4:an offset of the first index in the array in the data store of the buffer currently bound to the GL_ELEMENT_ARRAY_BUFFER target
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+		GLCall(glDrawElements(GL_TRIANGLES, 6, GL_INT, nullptr));
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
