@@ -77,7 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLEW_STATIC;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);GLEW_STATIC;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,9 +132,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scripts\IndexBuffer.cpp" />
+    <ClCompile Include="Scripts\Render.cpp" />
+    <ClCompile Include="Scripts\Shader.cpp" />
+    <ClCompile Include="Scripts\Util\BMPUtil.cpp" />
+    <ClCompile Include="Scripts\Util\SimpleModelLoader.cpp" />
+    <ClCompile Include="Scripts\VertexArray.cpp" />
+    <ClCompile Include="Scripts\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\model\Sphere.model" />
     <None Include="res\test.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scripts\IndexBuffer.h" />
+    <ClInclude Include="Scripts\Render.h" />
+    <ClInclude Include="Scripts\Shader.h" />
+    <ClInclude Include="Scripts\Util\BMPUtil.h" />
+    <ClInclude Include="Scripts\Util\SimpleModelLoader.h" />
+    <ClInclude Include="Scripts\VertexArray.h" />
+    <ClInclude Include="Scripts\VertexBuffer.h" />
+    <ClInclude Include="Scripts\VertexBufferLayout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\texture\NiuTou.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\shader\model.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
