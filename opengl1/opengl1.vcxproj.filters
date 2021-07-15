@@ -42,13 +42,7 @@
     <ClCompile Include="Scripts\Util\BMPUtil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\Util\SimpleModelLoader.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Scripts\Util\NTRLoader.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GLM\detail\glm.cpp">
+    <ClCompile Include="Scripts\Util\objModel.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,8 +50,6 @@
     <None Include="res\test.shader">
       <Filter>res\shader</Filter>
     </None>
-    <None Include="res\model\Sphere.model" />
-    <None Include="res\model\NiuTou.SkeletonAnimation" />
     <None Include="GLM\detail\func_common.inl">
       <Filter>头文件</Filter>
     </None>
@@ -496,12 +488,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Util\BMPUtil.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Scripts\Util\SimpleModelLoader.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Scripts\Util\NTRLoader.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GLM\detail\_features.hpp">
@@ -1362,6 +1348,9 @@
     <ClInclude Include="GLM\vector_relational.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Scripts\Util\objModel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\texture\NiuTou.bmp">
@@ -1370,8 +1359,5 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\shader\model.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="res\model\cube.obj" />
   </ItemGroup>
 </Project>

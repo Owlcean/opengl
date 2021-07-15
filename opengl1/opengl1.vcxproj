@@ -131,14 +131,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GLM\detail\glm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scripts\IndexBuffer.cpp" />
     <ClCompile Include="Scripts\Render.cpp" />
     <ClCompile Include="Scripts\Shader.cpp" />
     <ClCompile Include="Scripts\Util\BMPUtil.cpp" />
-    <ClCompile Include="Scripts\Util\NTRLoader.cpp" />
-    <ClCompile Include="Scripts\Util\SimpleModelLoader.cpp" />
+    <ClCompile Include="Scripts\Util\objModel.cpp" />
     <ClCompile Include="Scripts\VertexArray.cpp" />
     <ClCompile Include="Scripts\VertexBuffer.cpp" />
   </ItemGroup>
@@ -282,8 +280,6 @@
     <None Include="GLM\gtx\vector_angle.inl" />
     <None Include="GLM\gtx\vector_query.inl" />
     <None Include="GLM\gtx\wrap.inl" />
-    <None Include="res\model\NiuTou.SkeletonAnimation" />
-    <None Include="res\model\Sphere.model" />
     <None Include="res\test.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -577,8 +573,7 @@
     <ClInclude Include="Scripts\Render.h" />
     <ClInclude Include="Scripts\Shader.h" />
     <ClInclude Include="Scripts\Util\BMPUtil.h" />
-    <ClInclude Include="Scripts\Util\NTRLoader.h" />
-    <ClInclude Include="Scripts\Util\SimpleModelLoader.h" />
+    <ClInclude Include="Scripts\Util\objModel.h" />
     <ClInclude Include="Scripts\VertexArray.h" />
     <ClInclude Include="Scripts\VertexBuffer.h" />
     <ClInclude Include="Scripts\VertexBufferLayout.h" />
@@ -588,9 +583,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\shader\model.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="res\model\cube.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
