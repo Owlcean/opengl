@@ -45,6 +45,12 @@
     <ClCompile Include="Scripts\Util\objModel.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Scripts\Assimp\Mesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Assimp\Model.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\test.shader">
@@ -1349,6 +1355,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Util\objModel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Assimp\Mesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Assimp\Model.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
