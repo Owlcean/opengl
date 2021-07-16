@@ -12,10 +12,9 @@
 #include "Scripts/Shader.h"
 #include "Scripts/VertexBufferLayout.h"
 #include "Scripts/Util/BMPUtil.h"
-#include "Scripts/Util/SimpleModelLoader.h"
-#include "Scripts/Util/NTRLoader.h"
 #include "glm/glm.hpp"
 #include "glm/ext.hpp"
+#include "Scripts/Util/objModel.h"
 
 #pragma comment(lib,"glu32.lib")
 //YOGO
@@ -51,84 +50,74 @@ int main(void)
 		std::cout << "glew init fail" << std::endl;
 	}
 	{
-		float vertices[] = {
-			-0.5f,-0.5f,0.0f,
-			0.5f,-0.5f,0.0f,
-			0.5f,0.5f,0.0f,
-			-0.5f,0.5f,0.0f
-		};
+		//float vertices[] = {
+		//	-0.5f,-0.5f,0.0f,
+		//	0.5f,-0.5f,0.0f,
+		//	0.5f,0.5f,0.0f,
+		//	-0.5f,0.5f,0.0f
+		//};
 
-		unsigned int indices[] = {
-			0,1,2,
-			2,3,0
-		};
+		//unsigned int indices[] = {
+		//	0,1,2,
+		//	2,3,0
+		//};
 
-		VertexArray va;
-		VertexBuffer vb(vertices, 4*3 * sizeof(float));
-		VertexBufferLayout layout;
-		layout.Push<float>(3);//position
-		va.AddBuffer(vb, layout);
+		//VertexArray va;
+		//VertexBuffer vb(vertices, 4*3 * sizeof(float));
+		//VertexBufferLayout layout;
+		//layout.Push<float>(3);//position
+		//va.AddBuffer(vb, layout);
 
-		IndexBuffer ib(indices, sizeof(indices));
+		//IndexBuffer ib(indices, sizeof(indices));
 
 
-		float r = 0.0f;
-		float increment = 0.04;
+		//float r = 0.0f;
+		//float increment = 0.04;
 
-		Shader shader("res/test.shader");
-		shader.Bind();
-		Render render;
+		//Shader shader("res/test.shader");
+		//shader.Bind();
+		//Render render;
 
 		BMPUtil bmpLoader;
 		GLuint texture = bmpLoader.LoadBMP("res/texture/NiuTou.bmp");
 
-		//SimpleModelLoader modelLoader;
-		//std::vector<glm::vec3>cube_vertices;
-		//modelLoader.LoadSphere("res/model/cube.obj", cube_vertices);
-		//			modelLoader.Render(cube_vertices);
+		objModel objLoader("res/model/cube1.obj");
+		objLoader.setTexture(texture);
 
-		NTRLoader ntrLoader;
-		ntrLoader.Init("res/model/Sphere.model");
 
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
 			/* Render here */
 
-			render.Clear();
+			//render.Clear();
 
-			//shader.SetUniform4f("u_Color",r, 0.8f, 1.0f, 1.0f);
-			//render.Draw(va,ib,shader);
+			//shader.SetUniform4f("u_Color", r, 0.8f, 1.0f, 1.0f);
+			//render.Draw(va, ib, shader);
 
-			shader.Bind();
-			va.Bind();
-			ib.Bind();
+			//if (r > 1.0f)
+			//	increment = -0.05f;
+			//else if (r < 0.0f)
+			//	increment = 0.05f;
 
-			GLCall(glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, nullptr));
+			//r += increment;
 
-			//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 
 			glClearColor(0.1f, 0.4f, 0.6f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-			glLoadIdentity();
-			gluLookAt(0.0f, 0.0f, 5.0f, 0.0, 0.0, 0.0, 0.0, 1.0f, 0.0f);
+			//glLoadIdentity();
+			//gluLookAt(0.0f, 0.0f, 5.0f, 0.0, 0.0, 0.0, 0.0, 1.0f, 0.0f);
 
-			glPushMatrix();
-			glTranslatef(0.0f, -5.0f, -8.0f);
-			glScalef(0.1f, 0.1f, 0.1f);
-			glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
-			glPushMatrix();
-			glColor4ub(255, 255, 255, 255);
-			ntrLoader.Render();
-			glPopMatrix();
-
-			if (r > 1.0f)
-				increment = -0.05f;
-			else if (r < 0.0f)
-				increment = 0.05f;
-
-			r += increment;
+			//glPushMatrix();
+			//glTranslatef(0.0f, -5.0f, -8.0f);
+			//glScalef(0.1f, 0.1f, 0.1f);
+			//glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
+			//glPushMatrix();
+			//glColor4ub(255, 255, 255, 255);
+			objLoader.objDraw();
+			//glPopMatrix();
 
 			/* Swap front and back buffers */
 			glfwSwapBuffers(window);
