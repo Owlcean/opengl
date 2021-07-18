@@ -141,6 +141,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scripts\Assimp\Mesh.cpp" />
     <ClCompile Include="Scripts\Assimp\Model.cpp" />
+    <ClCompile Include="Scripts\BakeKeyFrame\BakedKeyFrameRenderer.cpp" />
     <ClCompile Include="Scripts\IndexBuffer.cpp" />
     <ClCompile Include="Scripts\Render.cpp" />
     <ClCompile Include="Scripts\Shader.cpp" />
@@ -580,6 +581,7 @@
     <ClInclude Include="GLM\vector_relational.hpp" />
     <ClInclude Include="Scripts\Assimp\Mesh.h" />
     <ClInclude Include="Scripts\Assimp\Model.h" />
+    <ClInclude Include="Scripts\BakeKeyFrame\BakedKeyFrameRenderer.h" />
     <ClInclude Include="Scripts\IndexBuffer.h" />
     <ClInclude Include="Scripts\Render.h" />
     <ClInclude Include="Scripts\Shader.h" />

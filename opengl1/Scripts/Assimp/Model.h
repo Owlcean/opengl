@@ -13,6 +13,7 @@
 #include <vector>
 #include "Mesh.h"
 #include "../Util/BMPUtil.h"
+#include "../Shader.h"
 
 using namespace std;
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
@@ -26,7 +27,7 @@ public:
 	string directory;
 	bool gammaCorrection;
 	Model(string const &path, bool gamma = false);
-	void Draw();
+	void Draw(Shader &shader);
 
 private:
 	// loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.

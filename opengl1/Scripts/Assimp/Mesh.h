@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <GL/glew.h>
+#include "../Shader.h"
 struct Vertex {
 	// position
 	glm::vec3 Position;
@@ -33,7 +34,7 @@ public:
 	std::vector<Texture>      textures;
 	unsigned int VAO;
 	Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
-	void Draw();
+	void Draw(Shader &shader);
 private:
 	// render data 
 	unsigned int VBO, EBO;

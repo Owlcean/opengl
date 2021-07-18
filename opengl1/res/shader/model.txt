@@ -1,15 +1,19 @@
 #shader vertex
 #version 330 core
-layout(location = 0)in vec3 vertexPosition_modelSpace;
-layout(location = 1)in vec2 vertexUV;
-out vec2 UV;
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
+layout (location = 2) in vec2 aTexCoords;
 
-uniform mat4 MVP;
+out vec2 TexCoords;
+
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
 
 void main()
 {
-	gl_Position = MVP * vec4(vertexPosition_modelSpace,1);
-	UV = vertexUV;
+    TexCoords = aTexCoords;    
+    gl_Position = projection * view * model * vec4(aPos, 1.0);
 }
 
 #shader fragment
@@ -17,11 +21,14 @@ void main()
 //Sampler2D加載指定紋理
 //texture()訪問紋理，返回rgba
 #version 330 core
-in vec2 UV;
-out vec4 color;
-uniform sampler2D myTextureSampler;
+out vec4 FragColor;
+
+in vec2 TexCoords;
+
+uniform sampler2D texture_diffuse1;
 
 void main()
-{
-	color = texture(myTextureSampler,UV).rgba;
-};
+{    
+   // FragColor = texture(texture_diffuse1, TexCoords);
+    FragColor =vec4(0.5, 0.0, 0.0, 1.0);
+}

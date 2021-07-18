@@ -25,5 +25,5 @@ public:
 	void Unbind()const;
 	bool CompileShader();
 	void SetUniform4f(const std::string& name, float arg0, float arg1, float arg2, float arg3);
-
+	unsigned int GetID() { return m_RendererID; }
 };

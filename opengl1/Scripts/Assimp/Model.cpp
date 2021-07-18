@@ -7,10 +7,10 @@ Model::Model(string const &path, bool gamma ) : gammaCorrection(gamma)
 	loadModel(path);
 }
 
-void Model::Draw()
+void Model::Draw(Shader &shader)
 {
 	for (unsigned int i = 0; i < meshes.size(); i++)
-		meshes[i].Draw();
+		meshes[i].Draw(shader);
 }
 
 // loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.
@@ -158,7 +158,6 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
 		if (!skip)
 		{   // if texture hasn't been loaded already, load it
 			Texture texture;
-			BMPUtil bmpUtil;
 			texture.id = TextureFromFile(str.C_Str(), this->directory);
 			texture.type = typeName;
 			texture.path = str.C_Str();

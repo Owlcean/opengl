@@ -51,6 +51,9 @@
     <ClCompile Include="Scripts\Assimp\Model.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Scripts\BakeKeyFrame\BakedKeyFrameRenderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\test.shader">
@@ -1361,6 +1364,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\Assimp\Model.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\BakeKeyFrame\BakedKeyFrameRenderer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

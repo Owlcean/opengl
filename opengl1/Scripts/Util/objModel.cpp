@@ -101,6 +101,7 @@ void objModel::setTexture(GLuint texture)
 
 void objModel::objDraw()
 {
+	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, mTexture);
 	glBegin(GL_TRIANGLES);
 	for (auto faceIndex = mFace.begin(); faceIndex != mFace.end(); ++faceIndex)         //循环遍历face信息
