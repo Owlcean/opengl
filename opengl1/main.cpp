@@ -43,12 +43,6 @@ int main(void)
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);//opengl渲染上下文
 
-	glMatrixMode(GL_PROJECTION);
-	gluPerspective(60.0f, 640.0f / 480.0f, 0.1f, 100.0f);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glfwSwapInterval(1);
-
 	if (glewInit() != GLEW_OK)//glew必须在opengl上下文创建后调用
 	{
 		std::cout << "glew init fail" << std::endl;
@@ -58,6 +52,10 @@ int main(void)
 		Model ourModel("res/model/nanosuit/nanosuit.obj");
 		Shader shader("res/shader/model.txt");
 
+		glm::mat4 p = glm::perspective(90.f, 680.0f / 480.0f, 0.1f, 100.f);
+		glm::mat4 m = glm::translate(0.0f, -7.0f, -10.0f)*glm::rotate(0.0f, 1.0f, 1.0f, 1.0f);
+		glm::mat4 mvp = p * m;
+
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
@@ -66,12 +64,14 @@ int main(void)
 			//draw obj directly 
 			glClearColor(0.1f, 0.4f, 0.6f, 1.0f); 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
-			glLoadIdentity(); glEnable(GL_DEPTH_TEST); 
-			glPushMatrix(); 
-			glTranslatef(0.0f, -3.0f, -10.0f); 
-			glRotatef(0.0f, 0.0f, 1.0f, 0.0f); 
-			glScalef(0.5f, 0.5f, 0.5f);
-			//shader.Bind();
+			 glEnable(GL_DEPTH_TEST); 
+			
+			 glEnable(GL_TEXTURE_2D);
+			 shader.Bind();
+			 glActiveTexture(GL_TEXTURE0);
+			 GLint location = glGetUniformLocation(shader.GetID(), "mvp");
+			 glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(mvp));
+
 			ourModel.Draw(shader);
 
 			glPopMatrix();
