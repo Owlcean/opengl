@@ -1377,5 +1377,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\shader\model.txt" />
+    <Text Include="res\shader\lightShader.txt" />
   </ItemGroup>
 </Project>

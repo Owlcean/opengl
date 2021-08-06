@@ -56,6 +56,14 @@ int main(void)
 		glm::mat4 m = glm::translate(0.0f, -7.0f, -10.0f)*glm::rotate(0.0f, 1.0f, 1.0f, 1.0f);
 		glm::mat4 mvp = p * m;
 
+		Model lightModel("res/model/Earth2K.obj");
+		Shader lightShader("res/shader/lightShader.txt");
+
+		glm::vec3 lightPos(4.0f, 7.0f, -10.0f);
+		glm::mat4 p1 = glm::perspective(90.f, 680.0f / 480.0f, 0.1f, 100.f);
+		glm::mat4 m1 = glm::translate(lightPos)*glm::scale(0.5f, 0.5f, 0.5f);
+		glm::mat4 mvp1 = p1 * m1;
+
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
@@ -69,10 +77,26 @@ int main(void)
 			 glEnable(GL_TEXTURE_2D);
 			 shader.Bind();
 			 glActiveTexture(GL_TEXTURE0);
-			 GLint location = glGetUniformLocation(shader.GetID(), "mvp");
-			 glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(mvp));
-
+			 //GLint location = glGetUniformLocation(shader.GetID(), "mvp");
+			 //glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(mvp));
+			 shader.SetUniformMatrix4f("mvp", mvp);
+			 shader.SetUniformMatrix4f("model", m);
+			 shader.SetUniform3f("lightColor", 1.0f, 1.0f,1.0f);
+			 shader.SetUniform3f("lightPos", lightPos.x, lightPos.y, lightPos.z);
 			ourModel.Draw(shader);
+
+			shader.Unbind();
+
+			lightShader.Bind();
+			glEnable(GL_TEXTURE_2D);
+			glActiveTexture(GL_TEXTURE0);
+			GLint location1 = glGetUniformLocation(lightShader.GetID(), "mvp");
+			glUniformMatrix4fv(location1, 1, GL_FALSE, glm::value_ptr(mvp1));
+
+
+			lightModel.Draw(lightShader);
+
+			lightShader.Unbind();
 
 			glPopMatrix();
 			/* Swap front and back buffers */

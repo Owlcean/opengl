@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 struct ShaderProgramSource {
 	std::string VertexSource;
 	std::string FragmentSource;
@@ -25,5 +26,7 @@ public:
 	void Unbind()const;
 	bool CompileShader();
 	void SetUniform4f(const std::string& name, float arg0, float arg1, float arg2, float arg3);
+	void SetUniform3f(const std::string& name, float arg0, float arg1, float arg2);
+	void SetUniformMatrix4f(const std::string& name, glm::mat4 matrix);
 	unsigned int GetID() { return m_RendererID; }
 };
