@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -99,7 +99,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,7 +134,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -161,15 +161,67 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="includes\assimp\ai_assert.h" />
+    <ClInclude Include="includes\assimp\anim.h" />
+    <ClInclude Include="includes\assimp\camera.h" />
+    <ClInclude Include="includes\assimp\cexport.h" />
+    <ClInclude Include="includes\assimp\cfileio.h" />
+    <ClInclude Include="includes\assimp\cimport.h" />
+    <ClInclude Include="includes\assimp\color4.h" />
+    <ClInclude Include="includes\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="includes\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="includes\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="includes\assimp\config.h" />
+    <ClInclude Include="includes\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="includes\assimp\defs.h" />
+    <ClInclude Include="includes\assimp\Exporter.hpp" />
+    <ClInclude Include="includes\assimp\Importer.hpp" />
+    <ClInclude Include="includes\assimp\importerdesc.h" />
+    <ClInclude Include="includes\assimp\IOStream.hpp" />
+    <ClInclude Include="includes\assimp\IOSystem.hpp" />
+    <ClInclude Include="includes\assimp\light.h" />
+    <ClInclude Include="includes\assimp\Logger.hpp" />
+    <ClInclude Include="includes\assimp\LogStream.hpp" />
+    <ClInclude Include="includes\assimp\material.h" />
+    <ClInclude Include="includes\assimp\matrix3x3.h" />
+    <ClInclude Include="includes\assimp\matrix4x4.h" />
+    <ClInclude Include="includes\assimp\mesh.h" />
+    <ClInclude Include="includes\assimp\metadata.h" />
+    <ClInclude Include="includes\assimp\NullLogger.hpp" />
+    <ClInclude Include="includes\assimp\postprocess.h" />
+    <ClInclude Include="includes\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="includes\assimp\quaternion.h" />
+    <ClInclude Include="includes\assimp\scene.h" />
+    <ClInclude Include="includes\assimp\texture.h" />
+    <ClInclude Include="includes\assimp\types.h" />
+    <ClInclude Include="includes\assimp\vector2.h" />
+    <ClInclude Include="includes\assimp\vector3.h" />
+    <ClInclude Include="includes\assimp\version.h" />
+    <ClInclude Include="includes\learnopengl\Camera.h" />
+    <ClInclude Include="includes\learnopengl\Mesh.h" />
+    <ClInclude Include="includes\learnopengl\Model.h" />
     <ClInclude Include="includes\learnopengl\Shader.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="resources\shader\fragmentShader1.fs" />
-    <Text Include="resources\shader\vertexShader1.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\pic\awesomeface.png" />
     <Image Include="resources\pic\container.jpg" />
+    <Image Include="resources\pic\container2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="includes\assimp\color4.inl" />
+    <None Include="includes\assimp\material.inl" />
+    <None Include="includes\assimp\matrix3x3.inl" />
+    <None Include="includes\assimp\matrix4x4.inl" />
+    <None Include="includes\assimp\quaternion.inl" />
+    <None Include="includes\assimp\vector2.inl" />
+    <None Include="includes\assimp\vector3.inl" />
+    <None Include="resources\shader\gamma_floor.fs" />
+    <None Include="resources\shader\gamma_floor.vs" />
+    <None Include="resources\shader\lighting_maps.fs" />
+    <None Include="resources\shader\lighting_maps.vs" />
+    <None Include="resources\shader\light_cube.fs" />
+    <None Include="resources\shader\light_cube.vs" />
+    <None Include="resources\shader\nano.fs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
