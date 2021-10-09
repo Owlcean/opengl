@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MODEL_H
 #define MODEL_H
 
@@ -36,6 +37,10 @@ public:
 	Model(string const &path, bool gamma = false) : gammaCorrection(gamma)
 	{
 		loadModel(path);
+	}
+
+	Model()
+	{
 	}
 
 	// draws the model, and thus all its meshes

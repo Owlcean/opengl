@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\assimp\ai_assert.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="includes\learnopengl\Mesh.h" />
     <ClInclude Include="includes\learnopengl\Model.h" />
     <ClInclude Include="includes\learnopengl\Shader.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\pic\awesomeface.png" />
