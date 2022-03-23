@@ -29,7 +29,8 @@ void Init()
 	specularMap = loadTexture("resources/pic/container2_specular.png", false);
 
 	ourModel =  Model("resources/model/nano/nanosuit.obj");
-	nanoShader = Shader("resources/shader/nano.vs", "resources/shader/nano.fs", "resources/shader/nano.gs");
+	//nanoShader = Shader("resources/shader/nano.vs", "resources/shader/nano.fs", "resources/shader/nano.gs");
+	nanoShader = Shader("resources/shader/nano.vs", "resources/shader/nano.fs");
 	lightingShader = Shader("resources/shader/lighting_maps.vs", "resources/shader/lighting_maps.fs");
 	lightCubeShader = Shader("resources/shader/light_cube.vs", "resources/shader/light_cube.fs");
 	screenShader = Shader("resources/shader/quad.vs", "resources/shader/quad.fs");
@@ -254,11 +255,11 @@ void Draw()
 	glm::mat4 projection_nano = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 	view = camera.GetViewMatrix();
 
-	normalShader.use();
-	normalShader.setMat4("projection", projection_nano);
-	normalShader.setMat4("view", view);
-	normalShader.setMat4("model", model_nano);
-	ourModel.Draw(normalShader);
+	//normalShader.use();
+	//normalShader.setMat4("projection", projection_nano);
+	//normalShader.setMat4("view", view);
+	//normalShader.setMat4("model", model_nano);
+	//ourModel.Draw(normalShader);
 
 	nanoShader.use();
 	nanoShader.setMat4("model_nano", model_nano);
